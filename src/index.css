@@ -1,0 +1,156 @@
+@import "tailwindcss";
+
+/* Make `dark:` classes follow the in-app theme toggle (the `dark` class on <html>) instead of the OS setting */
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+}
+
+.font-serif-luxury {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+.font-serif-brand {
+  font-family: 'Cormorant Garamond', 'Cinzel', Georgia, serif;
+}
+
+.font-mono-card {
+  font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.font-emboss-card {
+  font-family: 'Share Tech Mono', 'Courier Prime', monospace;
+  letter-spacing: 0.16em;
+}
+
+.font-display-modern {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* 3D Card Perspective Utilities */
+.perspective-1000 {
+  perspective: 1200px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Custom metallic and holographic gradients */
+.metallic-gold-text {
+  background: linear-gradient(135deg, #FFF6D5 0%, #D4AF37 35%, #F3E5AB 50%, #AA7C11 75%, #FFEFA6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metallic-silver-text {
+  background: linear-gradient(135deg, #FFFFFF 0%, #E2E8F0 30%, #94A3B8 50%, #CBD5E1 70%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metallic-rose-text {
+  background: linear-gradient(135deg, #FFF1F2 0%, #FDA4AF 35%, #F43F5E 65%, #FECDD3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Authentic physical stamping: raised embossed digits */
+.card-embossed-silver {
+  color: #d1d5db;
+  text-shadow: 
+    -1px -1px 0.8px rgba(255, 255, 255, 0.75), 
+    1.5px 1.5px 2px rgba(0, 0, 0, 0.95),
+    0px 0px 2px rgba(0, 0, 0, 0.6);
+}
+
+.card-embossed-gold {
+  color: #fef08a;
+  text-shadow: 
+    -1px -1px 0.8px rgba(255, 246, 213, 0.85), 
+    1.5px 1.5px 2px rgba(0, 0, 0, 0.95),
+    0px 0px 2px rgba(113, 63, 18, 0.8);
+}
+
+.card-engraved-gold {
+  color: #eab308;
+  text-shadow: 
+    1px 1px 0.8px rgba(255, 246, 213, 0.45), 
+    -1px -1px 1.5px rgba(0, 0, 0, 0.9);
+}
+
+.card-engraved-silver {
+  color: #e2e8f0;
+  text-shadow: 
+    1px 1px 0.8px rgba(255, 255, 255, 0.4), 
+    -1px -1px 1.5px rgba(0, 0, 0, 0.9);
+}
+
+.metallic-emboss {
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.4), 0 -1px 0 rgba(0, 0, 0, 0.7);
+}
+
+.metallic-deboss {
+  text-shadow: 0 -1px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.9);
+}
+
+/* Brushed metal effect via CSS linear repetition */
+.brushed-metal-dark {
+  background-color: #121316;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.015) 0px, rgba(255,255,255,0.015) 1px, transparent 1px, transparent 4px),
+    linear-gradient(145deg, #1c1d22 0%, #0d0e11 50%, #15161b 100%);
+}
+
+.brushed-platinum {
+  background-color: #d1d5db;
+  background-image: 
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.08) 0px, rgba(255,255,255,0.08) 1px, transparent 1px, transparent 3px),
+    linear-gradient(145deg, #f3f4f6 0%, #9ca3af 45%, #e5e7eb 70%, #6b7280 100%);
+}
+
+/* Subtle guilloche patterned background */
+.guilloche-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08) 0%, transparent 60%),
+    repeating-radial-gradient(circle at 50% 50%, transparent 0, transparent 8px, rgba(255, 255, 255, 0.03) 9px, transparent 10px);
+}
+
+/* Carbon fiber weave pattern */
+.carbon-weave {
+  background: 
+    radial-gradient(black 15%, transparent 16%) 0 0,
+    radial-gradient(black 15%, transparent 16%) 8px 8px,
+    radial-gradient(rgba(255,255,255,.05) 15%, transparent 20%) 0 1px,
+    radial-gradient(rgba(255,255,255,.05) 15%, transparent 20%) 8px 9px;
+  background-color: #0b0c10;
+  background-size: 16px 16px;
+}
+
+/* Custom scrollbar for control panels */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

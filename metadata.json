@@ -1,0 +1,6 @@
+{
+  "name": "Aura Black · Fictional Luxury Card Studio",
+  "description": "Create hyper-realistic fictional luxury payment cards for entertainment, digital wallet mockups, jokes, and creative content.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
