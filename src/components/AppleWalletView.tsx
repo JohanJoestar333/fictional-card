@@ -3,7 +3,6 @@ import { CardData } from '../types/card';
 import { CardVisual } from './CardVisual';
 import { sound } from '../utils/audio';
 import { Signal, Wifi, Battery, Download, Check, Sparkles, Sliders } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 interface AppleWalletViewProps {
   cardData: CardData;
@@ -19,12 +18,6 @@ export const AppleWalletView: React.FC<AppleWalletViewProps> = ({ cardData, onDo
     sound.playChime();
     setCheckAnimated(false);
     setTimeout(() => setCheckAnimated(true), 100);
-    confetti({
-      particleCount: 35,
-      spread: 55,
-      origin: { y: 0.65 },
-      colors: ['#007AFF', '#D4AF37', '#FFFFFF'],
-    });
   };
 
   const isWhite = deviceTheme === 'white';
@@ -42,7 +35,7 @@ export const AppleWalletView: React.FC<AppleWalletViewProps> = ({ cardData, onDo
                 setDeviceTheme('white');
               }}
               className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors cursor-pointer ${
-                isWhite ? 'bg-white text-neutral-900 font-bold shadow-xs' : 'text-neutral-400 hover:text-white'
+                isWhite ? 'bg-white text-neutral-900 font-semibold shadow-xs' : 'text-neutral-400 hover:text-white'
               }`}
             >
               Apple Pay Sheet (Light)
@@ -53,7 +46,7 @@ export const AppleWalletView: React.FC<AppleWalletViewProps> = ({ cardData, onDo
                 setDeviceTheme('dark');
               }}
               className={`px-2.5 py-1 rounded-md text-[11px] font-medium transition-colors cursor-pointer ${
-                !isWhite ? 'bg-neutral-800 text-white font-bold shadow-xs' : 'text-neutral-400 hover:text-white'
+                !isWhite ? 'bg-neutral-800 text-white font-semibold shadow-xs' : 'text-neutral-400 hover:text-white'
               }`}
             >
               Dark Mode
@@ -87,7 +80,7 @@ export const AppleWalletView: React.FC<AppleWalletViewProps> = ({ cardData, onDo
         <div className={`flex items-center justify-between px-6 pt-2 pb-8 text-sm font-semibold tracking-tight transition-colors ${
           isWhite ? 'text-black' : 'text-white'
         }`}>
-          <span className="font-sans font-bold text-base">9:41</span>
+          <span className="font-sans font-semibold text-base">9:41</span>
           <div className="flex items-center gap-2">
             <Signal className="w-4 h-4 fill-current stroke-none" />
             <Wifi className="w-4 h-4 stroke-[2.2]" />
@@ -158,10 +151,9 @@ export const AppleWalletView: React.FC<AppleWalletViewProps> = ({ cardData, onDo
         <button
           onClick={() => {
             sound.playChime();
-            confetti({ particleCount: 40, spread: 60 });
             onDownloadCard();
           }}
-          className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 font-bold text-xs flex items-center gap-1.5 cursor-pointer shadow-md transition-all active:scale-98"
+          className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-neutral-950 font-semibold text-xs flex items-center gap-1.5 cursor-pointer shadow-md transition-all active:scale-98"
         >
           <Download className="w-3.5 h-3.5" />
           <span>Download Pass PNG</span>

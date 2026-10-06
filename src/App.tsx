@@ -22,7 +22,6 @@ import {
   Sparkles,
   MousePointerClick
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 const STORAGE_KEY = 'aura_card_studio_v6';
 
@@ -222,23 +221,23 @@ export default function App() {
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${
-      isLight ? 'bg-[#f5f5f7] text-[#1d1d1f]' : 'bg-[#0b0c10] text-[#f5f5f7]'
+      isLight ? 'bg-[#f5f5f7] text-[#1d1d1f]' : 'bg-black text-[#f5f5f7]'
     }`}>
       {/* ================= HEADER BAR ================= */}
-      <header className={`px-6 py-3.5 border-b sticky top-0 z-50 backdrop-blur-xl transition-colors flex items-center justify-between ${
-        isLight ? 'bg-white/85 border-[#e5e5ea]' : 'bg-[#14151a]/85 border-[#23242b]'
+      <header className={`px-6 py-3 border-b sticky top-0 z-50 backdrop-blur-xl transition-colors flex items-center justify-between ${
+        isLight ? 'bg-[#f5f5f7]/80 border-black/10' : 'bg-[#1c1c1e]/80 border-white/10'
       }`}>
         {/* Left: Brand Mark */}
         <div className="flex items-center gap-3">
           <div className="flex items-center gap-2.5">
-            <div className="w-7 h-7 rounded-lg bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white shadow-sm font-black text-xs">
+            <div className="w-7 h-7 rounded-lg bg-neutral-900 dark:bg-white flex items-center justify-center text-white dark:text-neutral-900">
               <CreditCard className="w-4 h-4" />
             </div>
             <div>
-              <span className={`font-bold text-sm tracking-tight block leading-tight ${
+              <span className={`font-semibold text-sm tracking-tight block leading-tight ${
                 isLight ? 'text-neutral-900' : 'text-white'
               }`}>
-                Luxury Card Studio
+                Card Studio
               </span>
               <span className={`text-[10px] font-medium ${
                 isLight ? 'text-neutral-500' : 'text-neutral-400'
@@ -262,7 +261,7 @@ export default function App() {
                 : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <CreditCard className="w-3.5 h-3.5 text-[#0071E3]" />
+            <CreditCard className="w-3.5 h-3.5" />
             <span>Design Studio</span>
           </button>
 
@@ -277,8 +276,8 @@ export default function App() {
                 : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
-            <Wallet className="w-3.5 h-3.5 text-amber-500" />
-            <span>Apple Pay View</span>
+            <Wallet className="w-3.5 h-3.5" />
+            <span>Wallet Preview</span>
           </button>
         </div>
 
@@ -292,15 +291,14 @@ export default function App() {
             title={isLight ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
             className="p-2 rounded-xl border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-100 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
           >
-            {isLight ? <Moon className="w-4 h-4 text-neutral-600" /> : <Sun className="w-4 h-4 text-amber-400" />}
+            {isLight ? <Moon className="w-4 h-4 text-neutral-600" /> : <Sun className="w-4 h-4 text-neutral-300" />}
           </button>
 
           <button
             onClick={() => {
-              confetti({ particleCount: 35, spread: 55 });
               handleDownload();
             }}
-            className="px-4 py-2 rounded-xl bg-[#0071E3] hover:bg-[#0077ED] text-white text-xs font-bold shadow-md transition-all flex items-center gap-1.5 cursor-pointer active:scale-98"
+            className="px-4 py-1.5 rounded-full bg-[#0071E3] hover:bg-[#0077ED] text-white text-[13px] font-medium transition-all flex items-center gap-1.5 cursor-pointer active:scale-98"
           >
             <Download className="w-3.5 h-3.5" />
             <span>Export PNG</span>
@@ -361,7 +359,7 @@ export default function App() {
                       className="px-3 py-1.5 rounded-xl bg-neutral-200 dark:bg-neutral-800 hover:bg-neutral-300 dark:hover:bg-neutral-700 text-xs font-semibold text-neutral-800 dark:text-neutral-200 flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
                       title="Deselect active text layer (or press Esc)"
                     >
-                      <MousePointerClick className="w-3.5 h-3.5 text-[#0071E3]" />
+                      <MousePointerClick className="w-3.5 h-3.5" />
                       <span>Deselect Layer (Esc)</span>
                     </button>
                   </div>
@@ -413,7 +411,7 @@ export default function App() {
                 <div>
                   <span>Selected Layer: </span>
                   {cardData.selectedLayerId ? (
-                    <strong className="text-[#0071E3] font-bold">
+                    <strong className="text-[#0071E3] font-semibold">
                       {cardData.textLayers.find((l) => l.id === cardData.selectedLayerId)?.name}
                     </strong>
                   ) : (
@@ -446,7 +444,7 @@ export default function App() {
       }`}>
         <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <span className={isLight ? 'text-neutral-700 font-medium' : 'text-neutral-400'}>
-            Luxury Card Studio · For Props, Creative Content &amp; Mockups
+            Card Studio · For Props, Creative Content &amp; Mockups
           </span>
           <span className={`text-[11px] ${isLight ? 'text-neutral-500' : 'text-neutral-400'}`}>
             {FULL_LEGAL_DISCLAIMER}

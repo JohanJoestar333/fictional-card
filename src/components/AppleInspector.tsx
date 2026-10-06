@@ -30,7 +30,6 @@ import {
   RotateCcw,
   ExternalLink
 } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
 interface AppleInspectorProps {
   cardData: CardData;
@@ -351,7 +350,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           <div>
             <div className="flex items-center justify-between mb-3">
               <div>
-                <h3 className="text-sm font-bold text-neutral-900 dark:text-white">
+                <h3 className="text-sm font-semibold text-neutral-900 dark:text-white">
                   Card Templates
                 </h3>
                 <p className="text-xs text-neutral-500">
@@ -396,7 +395,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                         </div>
                       )}
                       <div className="absolute bottom-1 left-1.5">
-                        <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-black/70 text-white backdrop-blur-xs">
+                        <span className="text-[9px] font-semibold px-1.5 py-0.5 rounded-md bg-black/70 text-white backdrop-blur-xs">
                           {template.badge}
                         </span>
                       </div>
@@ -419,7 +418,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           {/* Custom Card Upload & Resource Link */}
           <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800">
             <div className="flex items-center justify-between mb-2">
-              <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+              <h4 className="text-xs font-semibold text-neutral-500">
                 Upload your card
               </h4>
               {cardData.customBackgroundImage && (
@@ -546,9 +545,9 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
             {selectedLayer ? (
               <div className="flex items-center justify-between w-full">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-[#0071E3] animate-pulse" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-[#0071E3]" />
                   <div>
-                    <div className="text-xs font-bold text-neutral-900 dark:text-white flex items-center gap-1.5">
+                    <div className="text-xs font-semibold text-neutral-900 dark:text-white flex items-center gap-1.5">
                       <span>Editing: {selectedLayer.name}</span>
                       {selectedLayer.locked && <Lock className="w-3 h-3 text-amber-500" />}
                     </div>
@@ -587,7 +586,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
 
           {/* Quick Preset Buttons */}
           <div>
-            <div className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+            <div className="text-xs font-semibold text-neutral-500 mb-2">
               Quick Add Presets
             </div>
             <div className="grid grid-cols-2 gap-1.5 text-xs">
@@ -626,7 +625,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           {/* ================= LAYER STACK LIST ================= */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+              <span className="text-xs font-semibold text-neutral-500">
                 Layer Hierarchy (Top to Bottom)
               </span>
               <span className="text-[11px] text-neutral-400">
@@ -676,7 +675,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                         <div className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 truncate flex items-center gap-1.5">
                           <span>{layer.name}</span>
                           {isSelected && (
-                            <span className="text-[9px] font-bold text-[#0071E3] bg-blue-100 dark:bg-blue-900/50 px-1 rounded">
+                            <span className="text-[9px] font-semibold text-[#0071E3] bg-blue-100 dark:bg-blue-900/50 px-1 rounded">
                               ACTIVE
                             </span>
                           )}
@@ -739,7 +738,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           {selectedLayer && (
             <div className="pt-4 border-t border-neutral-200 dark:border-neutral-800 space-y-5">
               <div className="flex items-center justify-between">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#0071E3] flex items-center gap-1.5">
+                <h4 className="text-xs font-semibold text-[#0071E3] flex items-center gap-1.5">
                   <Sliders className="w-3.5 h-3.5" />
                   <span>Layer Properties</span>
                 </h4>
@@ -759,7 +758,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                   <label className="font-semibold">Text Content</label>
                   <button
                     onClick={() => handleUpdateSelectedLayer({ isUppercase: !selectedLayer.isUppercase })}
-                    className={`px-2 py-0.5 rounded text-[10px] font-bold border transition-colors cursor-pointer ${
+                    className={`px-2 py-0.5 rounded text-[10px] font-semibold border transition-colors cursor-pointer ${
                       selectedLayer.isUppercase
                         ? 'bg-[#0071E3] text-white border-[#0071E3]'
                         : 'border-neutral-300 dark:border-neutral-700 text-neutral-600 dark:text-neutral-400'
@@ -822,13 +821,13 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                     <div className="flex items-center gap-1">
                       <button
                         onClick={() => handleUpdateSelectedLayer({ x: Math.max(2, selectedLayer.x - 1) })}
-                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-bold text-xs"
+                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-semibold text-xs"
                       >
                         -
                       </button>
                       <button
                         onClick={() => handleUpdateSelectedLayer({ x: Math.min(98, selectedLayer.x + 1) })}
-                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-bold text-xs"
+                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-semibold text-xs"
                       >
                         +
                       </button>
@@ -851,13 +850,13 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                     <div className="flex items-center gap-1">
                       <button
                         onClick={() => handleUpdateSelectedLayer({ y: Math.max(4, selectedLayer.y - 1) })}
-                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-bold text-xs"
+                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-semibold text-xs"
                       >
                         -
                       </button>
                       <button
                         onClick={() => handleUpdateSelectedLayer({ y: Math.min(96, selectedLayer.y + 1) })}
-                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-bold text-xs"
+                        className="w-5 h-5 rounded bg-neutral-200 dark:bg-neutral-700 flex items-center justify-center hover:bg-neutral-300 dark:hover:bg-neutral-600 cursor-pointer font-semibold text-xs"
                       >
                         +
                       </button>
@@ -919,7 +918,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs text-neutral-500">
                     <span>Size</span>
-                    <span className="font-bold">{selectedLayer.fontSize}px</span>
+                    <span className="font-semibold">{selectedLayer.fontSize}px</span>
                   </div>
                   <input
                     type="range"
@@ -934,7 +933,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                 <div className="space-y-1">
                   <div className="flex justify-between text-xs text-neutral-500">
                     <span>Spacing</span>
-                    <span className="font-bold">{selectedLayer.letterSpacing}px</span>
+                    <span className="font-semibold">{selectedLayer.letterSpacing}px</span>
                   </div>
                   <input
                     type="range"
@@ -1025,7 +1024,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
                       onClick={() => handleUpdateSelectedLayer({ effect: eff })}
                       className={`py-1.5 px-2 rounded-xl capitalize font-medium border transition-colors cursor-pointer ${
                         selectedLayer.effect === eff
-                          ? 'border-[#0071E3] bg-blue-50 dark:bg-blue-950/40 text-[#0071E3] font-bold shadow-xs'
+                          ? 'border-[#0071E3] bg-blue-50 dark:bg-blue-950/40 text-[#0071E3] font-semibold shadow-xs'
                           : 'border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300'
                       }`}
                     >
@@ -1047,7 +1046,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
 
                 <button
                   onClick={handleDeselectLayer}
-                  className="px-4 py-2 rounded-xl bg-[#0071E3] hover:bg-blue-600 text-white text-xs font-bold shadow-sm flex items-center gap-1.5 transition-all cursor-pointer active:scale-98"
+                  className="px-4 py-2 rounded-xl bg-[#0071E3] hover:bg-blue-600 text-white text-xs font-semibold shadow-sm flex items-center gap-1.5 transition-all cursor-pointer active:scale-98"
                 >
                   <Check className="w-4 h-4" />
                   <span>Done / Deselect</span>
@@ -1062,7 +1061,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
       {activeTab === 'export' && (
         <div className="p-5 space-y-6 overflow-y-auto max-h-[calc(100vh-220px)] custom-scrollbar">
           <div>
-            <h3 className="text-sm font-bold text-neutral-900 dark:text-white mb-1">
+            <h3 className="text-sm font-semibold text-neutral-900 dark:text-white mb-1">
               Export Card Artwork
             </h3>
             <p className="text-xs text-neutral-500">
@@ -1073,10 +1072,9 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           <div className="space-y-3">
             <button
               onClick={() => {
-                confetti({ particleCount: 35, spread: 60 });
                 onDownload();
               }}
-              className="w-full py-3.5 px-4 rounded-2xl bg-[#0071E3] hover:bg-blue-600 text-white font-bold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+              className="w-full py-3.5 px-4 rounded-2xl bg-[#0071E3] hover:bg-blue-600 text-white font-semibold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer active:scale-98"
             >
               <Download className="w-4 h-4" />
               <span>Download Ultra-Res PNG</span>
@@ -1102,7 +1100,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
 
           {/* Quick Specs */}
           <div className="p-4 rounded-2xl bg-neutral-100 dark:bg-neutral-800/40 border border-neutral-200 dark:border-neutral-800 text-xs space-y-2">
-            <div className="font-bold text-neutral-700 dark:text-neutral-300">
+            <div className="font-semibold text-neutral-700 dark:text-neutral-300">
               Export Specifications:
             </div>
             <div className="flex justify-between text-neutral-500">
