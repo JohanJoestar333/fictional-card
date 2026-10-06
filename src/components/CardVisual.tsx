@@ -238,14 +238,20 @@ export const CardVisual: React.FC<CardVisualProps> = ({
           {/* APPLE WALLET NUMBER ZONE (editor guide only, never exported) */}
           {showWalletZone && (
             <div
-              className="absolute z-40 pointer-events-none border-2 border-dashed border-red-500 bg-red-500/15 rounded-sm flex flex-col items-center justify-center text-center"
+              className="absolute z-40 pointer-events-none flex flex-col items-center justify-center gap-1 rounded-xl border-[1.5px] border-dashed border-rose-500/80 bg-rose-500/10 backdrop-blur-[1.5px] shadow-[inset_0_0_12px_rgba(244,63,94,0.18)]"
               style={{ left: '5.66%', top: '81.3%', width: '24.2%', height: '11.5%' }}
             >
-              <span className="text-[8px] sm:text-[9px] font-bold uppercase leading-tight text-red-600 bg-white/85 px-1 rounded">
-                ⚠ Apple Wallet numbers
-              </span>
-              <span className="text-[7px] sm:text-[8px] leading-tight text-red-600 bg-white/85 px-1 rounded mt-0.5">
-                Keep this area clear
+              <div className="flex items-center gap-1 rounded-full bg-rose-600/90 px-1.5 py-[3px] text-white shadow-md">
+                <svg viewBox="0 0 24 24" className="h-2.5 w-2.5 shrink-0" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z" />
+                  <path d="M12 9v4M12 17h.01" />
+                </svg>
+                <span className="whitespace-nowrap text-[7px] sm:text-[8px] font-semibold uppercase leading-none tracking-wider">
+                  Wallet numbers
+                </span>
+              </div>
+              <span className="whitespace-nowrap text-[6px] sm:text-[7px] font-medium uppercase leading-none tracking-widest text-rose-700 drop-shadow-[0_0_3px_rgba(255,255,255,0.9)]">
+                Keep clear
               </span>
             </div>
           )}

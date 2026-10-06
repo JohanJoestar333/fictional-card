@@ -171,7 +171,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           color: defaultColor,
           effect: 'embossed',
           x: 8,
-          y: 84,
+          y: 67,
           align: 'left',
           isUppercase: true,
         };
@@ -190,7 +190,7 @@ export const AppleInspector: React.FC<AppleInspectorProps> = ({
           color: defaultColor,
           effect: 'embossed',
           x: 8,
-          y: 66,
+          y: 60,
           align: 'left',
           isUppercase: true,
         };
